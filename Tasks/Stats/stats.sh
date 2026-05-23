@@ -24,5 +24,3 @@ display_stats() {
     echo "╚══════════════════════════════╝"
 }
 
-display_stats
-
