@@ -10,7 +10,7 @@ room_size=("small" "normal" "Huge")
 selected_room=${room_size[$RANDOM % 3]}
 # i think this picks between the 3 different options
 echo "you entered a $selected_room room"
-
+	# i need to make the room show what is in it so 
 
 if ["$selected_room" = "small" ]; then
 	echo "you enter the small room"
@@ -20,3 +20,15 @@ elif ["$selected_room" = "normal" ]; then
 
 else ["$selected_room" = "Huge" ]; then
 	echo "YOU ARE COOKED, YOU ENTERED THE HUGE ROOM"
+
+
+
+
+
+
+
+# now need to generate 10 different rooms and put it in an order,
+
+# need to use shuf -e command
+
+
