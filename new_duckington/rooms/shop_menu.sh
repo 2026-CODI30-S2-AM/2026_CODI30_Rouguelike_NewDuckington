@@ -116,12 +116,15 @@ sell_shop() {
 	echo
 	while true; do
 		printf "What Do You Want To Sell?"
-		echo
+		echo "Your Inventory"
 		echo "-------------------"
-		echo -e "${YELLOW}[1]  Buy $item1${NC}" 
-		echo -e "${GREEN}[2]  Buy $item2${NC}"
-		echo -e "${BLUE}[3]  Buy $item3${NC}"
-		echo -e "${PINK}[4]  Buy $item4${NC}"
+
+
+		# need to list inventory
+
 		echo -e "${RED}[5]  EXIT SHOP${NC}"
-		read shop_action
+		read sell_action
+
+
+		for owned_item ${!PLAYER_ITEMS[@]}
 }
