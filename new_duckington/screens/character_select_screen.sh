@@ -20,11 +20,11 @@ display_character_select_title()
 display_character_select_menu()
 {
 	echo "╔══════════════════════════════════════╗"
-	echo "║           [1] $character_1           ║"
+	echo "║           [1] $character_1            ║"
 	echo "╠══════════════════════════════════════╣"
-	echo "║           [2] $character_2           ║"
+	echo "║           [2] $character_2            ║"
 	echo "╠══════════════════════════════════════╣"
-	echo "║           [3] $character_3           ║"
+	echo "║           [3] $character_3            ║"
 	echo "╚══════════════════════════════════════╝"
 	echo ""
 }
