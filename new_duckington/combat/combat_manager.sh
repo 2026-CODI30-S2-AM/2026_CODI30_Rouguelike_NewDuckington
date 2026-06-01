@@ -36,6 +36,10 @@ while [[ $battle_end == false ]]; do
 	    echo -e "${YELLOW}         ⚔ YOUR TURN ⚔${NC}"
 	    echo -e "${CYAN}========================================${NC}"
 	    echo
+	    # show current player stats
+	    display_player_stats
+	    echo
+	    echo
 
 	    echo -e "${WHITE}Choose your action:${NC}"
 	    echo -e "${RED}[1] Attack${NC}"
@@ -44,41 +48,41 @@ while [[ $battle_end == false ]]; do
 	    echo -e "${GREEN}[4] Flee${NC} (your flee chance is $(( $base_flee_chance + $PLAYER_SPD*PLAYER_LCK/2 ))%)"
 	    echo
 
-	    read -p "Enter choice: " action
+		read -p "Enter choice: " action
+		# normalize textual input to lowercase for matching
+		action_lc=$(echo "$action" | tr '[:upper:]' '[:lower:]')
 
 
-	    case $action in
-	        1|attack|Attack)
+		case $action_lc in
+			1|attack)
 	            
 	            echo -e "${RED}You attack the enemy!${NC}"
 	            attack
 
 	            ;;
 	            
-	        2|skill|Skill)
-	            
-	            echo -e "${BLUE}You prepare a skill...${NC}"
-	            bash skill.sh
+			2|skill)
+				echo -e "${BLUE}You prepare a skill...${NC}"
+				bash "$GAME_ROOT/combat/skill.sh"
 	            ;;
 	            
-	        3|item|Item)
-	            
-	            echo -e "${YELLOW}Opening inventory...${NC}"
-	            bash item.sh
+			3|item)
+				echo -e "${YELLOW}Opening inventory...${NC}"
+				bash "$GAME_ROOT/combat/item.sh"
 	            ;;
 	            
-	        4|flee|Flee)
-	            
-	            echo -e "${GREEN}You attempt to flee!${NC}"
-	            bash flee.sh
+			4|flee)
+				echo -e "${GREEN}You attempt to flee!${NC}"
+				bash "$GAME_ROOT/combat/flee.sh"
 	            ;;
 	            
-	        *)
-	            echo
-	            echo -e "Invalid option. Try again."
-	            sleep 2
-	            bash combat_manager.sh
-	            ;;
+			*)
+				echo
+				echo -e "Invalid option. Try again."
+				sleep 2
+				# go back to the top of the player-turn loop without restarting the script
+				continue
+				;;
 	    esac
 
 	    sleep 1
@@ -94,6 +98,10 @@ while [[ $battle_end == false ]]; do
 	    echo -e "${YELLOW}========================================${NC}"
 	    echo -e "${RED}         ⚔ ENEMY TURN ⚔${NC}"
 	    echo -e "${YELLOW}========================================${NC}"
+	    echo
+	    # also show player stats during enemy turn
+	    display_player_stats
+	    echo
 
  	
 
