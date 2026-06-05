@@ -2,6 +2,7 @@
 
 source "shop_menu.sh"
 source "miniboss.sh"
+source "floors/"
 small_room() {
 	echo "you have entered a small room"
 
