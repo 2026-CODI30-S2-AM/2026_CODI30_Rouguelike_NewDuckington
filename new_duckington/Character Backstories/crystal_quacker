@@ -15,7 +15,7 @@ BEFORE POWERS:
 - Popular among younger citizens.
 
 BASE STATS:             STATS WITH Galaxy Glove:
-PLAYER_HP=100            PLAYER_HP=120 
+PLAYER_HP=100           PLAYER_HP=120 
 PLAYER_HP_MAX=150       PLAYER_HP_MAX=150
 PLAYER_ATK=10           PLAYER_ATK=60
 PLAYER_DEF=4            PLAYER_DEF=20
